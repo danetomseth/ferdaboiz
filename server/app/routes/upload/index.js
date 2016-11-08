@@ -127,7 +127,7 @@ function createThumbnail(file, filename) {
     let thumbPath = staticS3Path
     console.log("thumb path: ", thumbPath);
      im.resize({
-        srcPath: staticS3Path,
+        srcPath: staticS3Path + filename,
         width: 800
     }, function(err, stdout, stderr) {
         if (err) throw err;
