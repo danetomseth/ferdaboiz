@@ -75,7 +75,10 @@ let addToDb = function(photo) {
         if (err) {
             err.message = "Error saving photo to DB"
             err.status = 500;
-            return err
+            console.error.bind(err)
+            res.sendStatus(500);
+            res.end();
+            // return err
         }
         return;
     })
@@ -92,8 +95,38 @@ function uploadPromise(params) {
 }
 
 function createThumbnail(file, filename) {
-    im.resize({
-        srcPath: s3Path + filename,
+    // im.resize({
+    //     srcPath: s3Path + filename,
+    //     width: 800
+    // }, function(err, stdout, stderr) {
+    //     if (err) throw err;
+    //     let base64data = new Buffer(stdout, 'binary');
+    //     let s3bucket = new AWS.S3({
+    //         params: {
+    //             Bucket: 'ztf'
+    //         }
+    //     });
+    //     if (err) {
+    //         err.message = "Error uploading Thumbnail"
+    //         err.status = 500;
+    //         throw err
+    //     }
+    //     let params = {
+    //         Key: 'thumbnail-' + filename,
+    //         Bucket: 'ztf',
+    //         Body: base64data
+    //     };
+    //     s3bucket.upload(params, function() {
+    //         console.log("thumbnail upload complete");
+    //         return
+    //     });
+
+
+    // });
+    let thumbPath = s3Path + filename
+    console.log("thumb path: ", thumbPath);
+     im.resize({
+        srcPath: thumbPath,
         width: 800
     }, function(err, stdout, stderr) {
         if (err) throw err;
