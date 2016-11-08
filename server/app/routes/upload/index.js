@@ -9,6 +9,7 @@ let mongoose = require('mongoose');
 let uniqueFilename = require('unique-filename');
 let AWS = require('aws-sdk');
 let sKey = require(path.join(__dirname, '../../../env')).AKID;
+let staticS3Path = require(path.join(__dirname, '../../../env')).S3PATH
 let im = require('imagemagick');
 let s3Path = 'https://s3-us-west-2.amazonaws.com/ztf/';
 let Promise = require("bluebird");
@@ -123,10 +124,10 @@ function createThumbnail(file, filename) {
 
 
     // });
-    let thumbPath = s3Path + filename
+    let thumbPath = staticS3Path
     console.log("thumb path: ", thumbPath);
      im.resize({
-        srcPath: thumbPath,
+        srcPath: staticS3Path,
         width: 800
     }, function(err, stdout, stderr) {
         if (err) throw err;

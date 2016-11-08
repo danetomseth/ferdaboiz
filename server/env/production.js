@@ -9,6 +9,7 @@
 module.exports = {
     "DATABASE_URI": process.env.MONGOLAB_URI,
     "AKID": process.env.AWS_ACCESS_KEY_ID,
+    "S3PATH": process.env.S3PATH,
     "SECRET": process.env.AWS_SECRET_ACCESS_KEY,
     "SESSION_SECRET": process.env.SESSION_SECRET,
     "TWITTER": {
