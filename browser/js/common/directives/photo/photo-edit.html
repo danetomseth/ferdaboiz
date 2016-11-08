@@ -1,0 +1,33 @@
+<div class="gallery-box">
+	<img class="gallery-image" ng-src="{{photo.thumbSrc}}" ng-click="addToAlbum(photo)" alt="">
+	<div class="photo-data">
+		<div layout="column" ng-cloak class="md-inline-form">
+				<div>
+					<form name="pageForm">
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block" flex-gt-sm>
+								<label>Name</label>
+								<input ng-model="photo.title">
+							</md-input-container>
+							<md-input-container class="md-block" >
+								<label>Album</label>
+								<md-select ng-model="photo.album">
+									<md-option ng-repeat="album in albums" style="color: black;" value="{{album.title}}">
+										{{album.title}}
+									</md-option>
+								</md-select>
+							</md-input-container>
+						</div>
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block" flex-gt-sm>
+								<label>Tags</label>
+								<input ng-model="photo.tags">
+							</md-input-container>
+						</div>
+					</md-input-container>
+					<md-button class="md-primary md-raised" ng-click="savePhoto()">Save</md-button>
+				</form>
+			</div>
+	</div>
+</div>
+</div>

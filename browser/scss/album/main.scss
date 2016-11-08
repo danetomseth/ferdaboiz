@@ -1,0 +1,68 @@
+#albumEditPage {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px 10px;
+}
+
+#albumEdit {
+  width: 30%;
+  min-width: 200px;
+  height: 300px;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+#imageThumbs {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px 10px;
+}
+
+#imageBox {
+  height: 250px;
+  width: 250px;
+}
+
+#imageBox img {
+  width: 100%;
+  height: auto;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper .glyphicon {
+   position: absolute;
+   color: white;
+   font-size: 1.5em;
+   top: 10px;
+   left: 10px;
+}
+
+.image-wrapper .glyphicon:hover {
+  color: red;
+}
+
+#simpleAlbums {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px 10px;
+}
+#simpleAlbum {
+  height: 200px;
+  width: 300px;
+  margin: 5px;
+}
+
+#simpleAlbum img {
+  width: 100%;
+  }
+
+#simpleAlbum img:hover {
+  opacity: 0.8;
+  }

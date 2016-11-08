@@ -1,0 +1,59 @@
+
+<div layout="row" layout-align="center" class="zt-upload">
+    <div class="panel zt-shadow" flex="75" >
+        <div class="panel-body">
+            <h2 class="title-hero" ng-hide="creatingAlbum">
+                Select Album
+            </h2>
+            <h2 class="title-hero" ng-show="creatingAlbum">
+                New Album
+            </h2>
+            <div class="example-box-wrapper" layout="column">
+                <div id="form-wizard" ng-hide="creatingAlbum">
+                    <ul>
+                        <li class="label title-hero">Album:</li>
+                        <li ng-class="{'active': selectedAlbum == album}" ng-repeat="album in albums" ng-click="setAlbum(album)"><a  data-toggle="tab">{{album.title}}</a></li>
+                    </ul>
+                </div>
+                <div class="form-group" ng-hide="creatingAlbum">
+                    <md-button class="md-accent md-raised" ng-click="creatingAlbum = true">New Album</md-button>
+                </div>
+                <div class="form-group" layout="row" ng-show="creatingAlbum">
+                    <label class="control-label">Title</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="" ng-model="albumTitle" placeholder="Album Title...">
+                    </div>
+                </div>
+                <div class="form-group" layout="row" ng-show="creatingAlbum">
+                    <label class="control-label">Private</label>
+                    <div class="col-sm-6">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="" value="option2" ng-model="private">
+                            Yes
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="creatingAlbum">
+                    <md-button class="md-primary" ng-click="createAlbum()">Create</md-button>
+                </div>
+              
+            </div>
+            <div flex>
+            <div class="content-box">
+                            <h3 class="content-box-header bg-default">
+                                Upload Photos
+                            </h3>
+                            <div class="content-box-wrapper">
+                                <uploader></uploader>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

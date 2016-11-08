@@ -1,0 +1,39 @@
+
+
+<div id="albumEditPage" ng-hide="selectingPictures">
+	<div id="albumEdit" ng-repeat="album in albums" class="md-whiteframe-3dp">
+			<div layout="column" ng-cloak class="md-inline-form">
+				<div>
+					<form name="pageForm">
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block" flex-gt-sm>
+								<label>Title</label>
+								<input ng-model="album.title">
+							</md-input-container>
+
+						</div>
+					<div layout-gt-sm="row">
+						<p><strong>Photo Count: </strong>{{album.photos.length}}</p>
+					</div>
+					<md-input-container class="md-block">
+					<md-button class="md-accent md-raised" ng-click="addPhotos(album)">Add Photos</md-button>
+					<md-button class="md-primary md-raised" ng-click="viewAlbum(album)">View</md-button>
+					</md-input-container>
+					<md-button class="md-primary md-raised" ng-click="updateAlbum(album)">Save</md-button>
+					<md-button class="md-warn md-raised" ng-click="deleteAlbum(album)">Delete</md-button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-show="selectingPictures">
+<md-button class="md-primary md-raised" ng-click="updateAlbum(album)">Save</md-button>
+
+<div id="imageThumbs">
+
+<div id="imageBox" class="md-whiteframe-3dp" ng-repeat="photo in photos">
+	<img ng-src="{{photo.src}}" ng-click="addToAlbum(photo)" alt="">
+</div>
+
+</div>

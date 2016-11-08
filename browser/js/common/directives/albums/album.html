@@ -1,0 +1,27 @@
+
+<div layout="row" layout-wrap ng-cloak>
+<md-card flex=25 ng-repeat="album in albums">
+		<md-card-title class="title-sm">
+			<md-card-title-text>
+				<span class="md-headline">{{album.title}}</span>
+				<!-- <span class="md-subhead">Extra Large</span> -->
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content layout="row" layout-align="space-between">
+			<div id="cardImg" class="md-media-lg card-media">
+				<img ng-src="{{album.cover.thumbSrc}}"  alt="">
+			</div>
+			<md-card-actions layout="column">
+				<md-button ng-click="followAlbum(album)" class="md-icon-button md-primary" aria-label="Favorite">
+					<md-icon class="material-icons">favorite</md-icon>
+				</md-button>
+				<md-button class="md-icon-button md-primary" aria-label="Settings">
+					<md-icon class="material-icons">menu</md-icon>
+				</md-button>
+				<md-button class="md-icon-button md-primary" aria-label="Share">
+					<md-icon class="material-icons">share_arrow</md-icon>
+				</md-button>
+			</md-card-actions>
+		</md-card-content>
+	</md-card>
+</div>

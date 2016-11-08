@@ -1,0 +1,21 @@
+{
+  "name": "ZTF",
+  "description": "Photo Sharing",
+  "main": "server/start.js",
+  "authors": [
+    "danetomseth <danetomseth@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/danetomseth/ZTF",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-deckgrid": "^0.5.0"
+  }
+}

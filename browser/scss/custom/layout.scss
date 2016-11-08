@@ -1,0 +1,112 @@
+.zt-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.zt-center-child div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+
+
+#centerContent {
+	width: 75%;
+	margin: 0 auto;
+}
+
+
+.input-block {
+	margin-left: 36px;
+	position: absolute;
+	top: 8px;
+	line-height: 2em;
+}
+
+
+.inline-label {
+	padding-right: 10px;
+}
+
+
+
+
+
+.content {
+	border: 1px solid grey;
+}
+
+
+.shade1 {
+	background: rgba(0, 0, 0, 0.8);
+}
+
+
+.shade2 {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+
+.shade3 {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+
+.shadeA {
+	background: rgba(75, 0, 0, 0.8);
+}
+
+
+.shadeB {
+	background: rgba(0, 75, 0, 0.8);
+}
+
+
+.shadeC {
+	background: rgba(0, 0, 75, 0.8);
+}
+
+.zt-100 {
+	height: 100px;
+}
+
+
+.zt-200 {
+	height: 200px;
+}
+
+
+
+.zt-300 {
+	height: 300px;
+}
+
+.zt-fixed {
+	width: 100px;
+}
+
+.parent div {
+	border: 1px solid black;
+	color: white;
+	text-align: center;
+}
+
+
+.zt-upload-wrapper {
+	
+}
+
+
+.zt-vert-center div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}

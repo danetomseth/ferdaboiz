@@ -1,0 +1,28 @@
+<md-toolbar>
+		<div class="md-toolbar-tools">
+			<h2>
+				<span>{{album.title}}</span>
+			</h2>
+		</div>
+	</md-toolbar>
+<div layout="row" layout-align="center" class="text-center">
+<md-button ng-show="changesMade" class="md-warn md-raised" ng-click="updateAlbum()">Save Changes</md-button>
+
+<md-button ng-hide="changesMade" class="md-accent md-raised" ng-click="selectCover()">Select Cover</md-button>
+<md-button ng-hide="changesMade" class="md-accent md-raised" ng-click="deletePhotos()">Delete Photos</md-button>
+</div>
+
+
+
+
+	<div class="ui-69">
+			<div class="container">
+				<div layout="row" layout-wrap layout-margin>
+					<div flex="20" ng-repeat="photo in photos">
+						<!-- Item -->
+						<single-photo photo="photo"></single-photo>
+					</div>
+			
+				</div>
+			</div>
+		</div>

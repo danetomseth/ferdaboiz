@@ -1,0 +1,16 @@
+
+<div class="zt-album-box">
+	<div class="zt-album-box-header zt-primary"><h3 class="zt-primary">{{album.title}}</h3></div>
+	<div class="zt-album-box-wrapper" ui-sref="singleAlbum({albumId: album._id})">
+		<div ng-if="album.cover.thumbSrc" class="zt-album-cover zt-center" zt-set-size>
+			<img ng-src="{{album.cover.thumbSrc}}" alt="">
+		</div>
+		<div class="zt-no-cover zt-center" ng-if="!album.cover.thumbSrc" zt-set-size>
+			<i class="zt-white glyph-icon fa-picture-o fa-5x" ></i>
+		</div>
+		
+	</div>
+	<div class="text-center zt-card-actions" ng-show="editAlbums">
+			<md-button class="md-primary" ng-click="editAlbum()">Edit</md-button>
+		</div>
+</div>

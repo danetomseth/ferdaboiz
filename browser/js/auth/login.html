@@ -1,0 +1,34 @@
+<div id="signupPage">
+	<h2>Login</h2>
+	<div layout="column" ng-cloak class="md-inline-form">
+		<md-content layout-padding>
+			<div>
+				<form name="loginForm" ng-submit="login()">
+					<div layout-gt-xs="row">
+						<md-input-container class="md-block" flex-gt-xs>
+							<label>Email</label>
+							<input ng-model="email" required>
+						</md-input-container>
+						<md-input-container class="md-block" flex-gt-xs>
+							<label>Password</label>
+							<input ng-model="password" required>
+						</md-input-container>
+					</div>
+					<div layout-gt-xs="row">
+						<md-input-container class="md-block" flex-gt-xs>
+							<md-button class="md-primary md-raised" type="submit">
+								Submit
+							</md-button>
+						</md-input-container>
+					</div>
+				</form>
+			</div>
+		</md-content>
+	</div>
+	<md-button class="md-primary md-raised" ng-click="getUser()">
+								User
+							</md-button>
+</div>
+
+
+

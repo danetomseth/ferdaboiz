@@ -1,0 +1,11 @@
+
+<!-- <div class="zt-gallery-slide"  uib-slide ng-repeat="slide in galleryPhotos track by slide.id" index="slide.id"> -->
+<div class="zt-gallery">
+	<i class="fa fa-times fa-3x" aria-hidden="true" ng-click="closeGallery()"></i>
+    <uib-carousel  template-url="/js/common/directives/gallery/slider.html">
+      <uib-slide  template-url="/js/common/directives/gallery/slide.html" ng-repeat="slide in galleryPhotos" active="slide.active" index="$index">
+        <img ng-src="{{slide.src}}" style="margin:auto;">
+      </uib-slide>
+    </uib-carousel>
+</div>
+

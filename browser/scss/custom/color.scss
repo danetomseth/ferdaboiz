@@ -1,0 +1,18 @@
+$zt-primary: rgb(33,150,243);
+$zt-accent: rgb(178,255,89);
+$zt-warn: #063E53; 
+
+.zt-primary {
+	background: $zt-primary;
+	color: white !important;
+}
+
+
+.zt-white {
+	color: white;
+}
+
+
+.md-content.md-default-theme, md-content {
+	background-color: #fff !important;
+	}

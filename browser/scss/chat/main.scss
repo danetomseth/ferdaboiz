@@ -1,0 +1,158 @@
+
+@mixin boxBorder ($color) {
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: $color;
+}
+.userClass {
+	width: 100px;
+}
+
+.top-buffer {
+	margin-top: 20px;
+}
+
+.bottom-buffer {
+	margin-bottom: 20px;
+}
+
+.buffer {
+	margin-top: 20px !important;
+	margin-bottom: 20px !important;
+}
+
+#chat {
+	.text-wrapper {
+		background-color: $colorW;
+		box-shadow: 5px 5px 10px $colorA;
+		@include boxBorder($colorW)
+		min-height: 70%;
+		padding-bottom: 20px;
+		padding:10px 30px;
+	}
+	.page-header {
+		margin-top: 20px;
+		h2 {
+			color: $colorC;
+		}
+		small {
+			color: $colorC;
+		}
+	}
+	.user-interact {
+		margin: 10px 0;
+	}
+	 .chat-container {
+		
+		padding:20px 30px;
+		
+		margin: 0 auto;
+		
+
+		
+	}
+	 .text-container {
+	 	overflow-y: auto;
+		min-height: 200px;
+		padding: 10px 20px;
+		background-color: $colorW;
+		border-radius: 5px;
+		border-sytle: solid;
+		border-width: 1px;
+		border-color: $colorW;
+		clear:both;
+
+	}
+	.bubble-box {
+		//display: inline-box;
+		width: auto;
+		padding: 0px;
+		padding-bottom: 3px;
+		margin: 10px;
+		border-bottom-style: groove;
+	    border-width: 1px;
+	}
+	.text-list {
+		padding: 0px;
+		max-height:450px;
+		overflow: scroll;
+	}
+}
+#chatBubbles {
+		p.user-tag {
+			color: $colorC;
+			display: block;
+			margin: 0px;
+			padding-top: 16px;
+			font-size: 1em;
+		}
+		p.user-tag.right {
+			float: right;
+			margin-left: 15px;
+
+		}
+		p.user-tag.left {
+			float: left;
+			margin-right: 15px;
+		}
+		p.chat-box-right {
+			display: inline-block;
+			-webkit-margin-before: 0em;
+			-webkit-margin-after: 0em;
+			-webkit-margin-start: 0px;
+			-webkit-margin-end: 0px;
+		}
+		.chat-box-right {
+			position: relative;
+		    padding: 10px 30px;
+		    margin: 0em 0 0em;
+		    color: $colorW;
+		    background: #075698;
+		    background: -webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+		    background: -moz-linear-gradient(#2e88c4, #075698);
+		    background: -o-linear-gradient(#2e88c4, #075698);
+		    background: linear-gradient(#2e88c4, #075698);
+		    -webkit-border-radius: 10px;
+		    -moz-border-radius: 10px;
+		    border-radius: 10px;
+		}
+		.chat-box-right.left {
+			margin-left: 40px;
+	    	background: $colorD;
+		}
+		.chat-box-right.right {
+			margin-right: 40px;
+			background: $colorD;
+			float:right;
+		}
+		.chat-box-right:after {
+		  content:"";
+		  position:absolute;
+		  bottom:-20px; /* value = - border-top-width - border-bottom-width */
+		  left:50px; /* controls horizontal position */
+		  border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+		  border-style:solid;
+		  border-color: $colorB transparent;
+		  /* reduce the damage in FF3.0 */
+		  display:block;
+		  width:0;
+		}
+		.chat-box-right.left:after {
+		  top:16px;
+		  left:-40px; /* value = - border-left-width - border-right-width */
+		  bottom:auto;
+		  border-width:15px 40px 0 0; /* vary these values to change the angle of the vertex */
+		  border-color:transparent $colorD;
+		}
+		.chat-box-right.right:after {
+		  top:16px;
+		  right:-40px; /* value = - border-left-width - border-right-width */
+		  bottom:auto;
+		  left:auto;
+		  border-width:15px 0 0 40px; /* vary these values to change the angle of the vertex */
+		  border-color:transparent $colorD;
+		}
+}
+
+

@@ -1,0 +1,23 @@
+<md-card>
+		<md-card-title class="title-sm">
+			<md-card-title-text>
+				<span class="md-headline">{{album.title}}</span>
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content layout="row" layout-align="space-between">
+			<div id="cardImg" class="md-media-lg card-media" ui-sref='singleAlbum({albumId: album._id})'>
+				<img ng-src="{{album.cover.thumbSrc}}" alt="">
+			</div>
+			<md-card-actions layout="column">
+				<md-button ng-click="addToFavorites()" class="md-icon-button md-primary" aria-label="Favorite">
+					<md-icon class="material-icons">favorite</md-icon>
+				</md-button>
+				<md-button class="md-icon-button md-primary" ng-click="editAlbum()" aria-label="Settings">
+					<md-icon class="material-icons">create</md-icon>
+				</md-button>
+				<md-button class="md-icon-button md-primary" aria-label="Share">
+					<md-icon class="material-icons">share_arrow</md-icon>
+				</md-button>
+			</md-card-actions>
+		</md-card-content>
+	</md-card>

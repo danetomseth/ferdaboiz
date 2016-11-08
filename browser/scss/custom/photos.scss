@@ -1,0 +1,25 @@
+#galleryContainer {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.gallery-box {
+	min-height: 400px;
+	background: grey;	
+	margin: 20px 5px;
+}
+
+.gallery-box img {
+	height: 200px;
+}
+
+.photo-data {
+	padding: 5px;
+	background: white;
+}
+
+
+.gallery-image {
+	height: 100%;
+}

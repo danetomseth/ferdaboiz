@@ -1,0 +1,57 @@
+
+$colorW: white;
+$colorA: #d1C5B7; //background, light brown
+$colorB: #856941; //Border/text med-brown
+$colorC: #735D41; //text, heading, dark brown
+$colorD: #0193B7; //light blue, highlights
+$colorE: #063E53; //dark blue, nav/gradients
+
+* {
+  box-sizing: border-box;
+  font-family: "filson-soft",sans-serif;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+#main {
+	// height: 100%;
+}
+
+.modal-dialog {
+	margin-top: 170px;
+}
+
+
+html {
+  background-color: #fff !important;
+}
+
+
+@import 'directives/main';
+@import 'home/main';
+@import 'login/main';
+@import 'chat/main';
+@import 'calendar/main';
+@import 'album/main';
+@import 'photos/main';
+@import 'custom/main';
+@import 'deck/main';
+@import 'external/_main';
+
+
+// Fonts
+
+
+h1, h2, h3, h4{
+  font-family: "filson-soft",sans-serif;
+  }
+
+md-button {
+	font-family: "filson-soft",sans-serif !important;
+}
