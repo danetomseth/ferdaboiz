@@ -76,10 +76,8 @@ let addToDb = function(photo) {
         if (err) {
             err.message = "Error saving photo to DB"
             err.status = 500;
-            console.error.bind(err)
-            res.sendStatus(500);
-            res.end();
-            // return err
+            
+            return err
         }
         return;
     })
