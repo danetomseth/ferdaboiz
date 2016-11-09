@@ -9,7 +9,9 @@ app.directive('imageonload', function() {
             })
 
             element.bind('error', function() {
-                alert('image could not be loaded');
+                // alert('image could not be loaded');
+                console.log("cannot load thumb");
+                scope.photo.thumbSrc = scope.photo.src;
             });
 
 
