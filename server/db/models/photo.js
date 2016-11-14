@@ -13,7 +13,8 @@ var schema = new mongoose.Schema({
         type: String
     },
     src: {
-        type: String
+        type: String,
+        required: true
     },
     thumbSrc: {
         type: String
@@ -49,20 +50,15 @@ schema.plugin(random, { path: 'r' }); // by default `path` is `random`. It's use
 
 
 
-// schema.pre('save', function (next) {
-//     if(this.album) {
-//         Album.findById(this.album).then(album => {
-//             return album.addPhoto(this._id)
-//         }).then(album => {
-//             console.log("added photo to album: ", album);
-//             next()
-//         })
-//     }
-//     else {
-//         console.log("no album");
-//         next();
-//     }
-// })
+schema.pre('save', function (next) {
+    if(!this.thumbSrc) {
+       this.thumbSrc = this.src
+       console.log("no thumb src");
+    }
+    else {
+        next();
+    }
+})
 
 
 schema.method('updatePhoto', function () {
