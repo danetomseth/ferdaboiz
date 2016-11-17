@@ -54,6 +54,7 @@ schema.pre('save', function (next) {
     if(!this.thumbSrc) {
        this.thumbSrc = this.src
        console.log("no thumb src");
+       next();
     }
     else {
         next();

@@ -3,12 +3,13 @@ app.directive('uploader', function() {
         restrict: 'E',
         templateUrl: 'js/common/directives/upload/upload.html',
         link: (scope, elem, attr) => {
-           
+            // let uploadUrl = "/api/upload/photo/"
+            let uploadUrl = "/api/aws/photo/"
             var galleryUploader = new qq.FineUploader({
                 element: document.getElementById("fine-uploader-gallery"),
                 template: 'qq-template-gallery',
                 request: {
-                    endpoint: '/api/upload/photo/'+ scope.uploadAlbum
+                    endpoint: uploadUrl + scope.uploadAlbum
                 },
                 thumbnails: {
                     placeholders: {
@@ -23,7 +24,7 @@ app.directive('uploader', function() {
 
 
             let updateEndpoint = () => {
-                let endpoint = '/api/upload/photo/' + scope.uploadAlbum;
+                let endpoint = uploadUrl + scope.uploadAlbum;
                 galleryUploader.setEndpoint(endpoint);
                 console.log("endpoint updated");
             }

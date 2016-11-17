@@ -51,52 +51,49 @@ router.get('/listAlbums', function(req, res, next) {
 });
 
 
-router.get('/viewAlbum/:albumName', function(req, res, next) {
-    var albumPhotosKey = encodeURIComponent(req.params.albumName) + '//';
-        s3.listObjects({
-            Prefix: albumPhotosKey
-        }, function(err, data) {
-            if (err) {
-                console.log("error retriving album");
-                return next(err);
-            }
-            // `this` references the AWS.Response instance that represents the response
-            var href = this.request.httpRequest.endpoint.href;
-            var bucketUrl = href + albumBucketName + '/';
-
-            var photos = data.Contents.map(function(photo) {
-                var photoKey = photo.Key;
-                var photoUrl = bucketUrl + encodeURIComponent(photoKey);
-                let photoItem = {
-                    key: photoKey,
-                    url: photoUrl
-                }
-                return photoItem;
-                    // '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
-                    // '<span ng-click="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
-                    // photoKey.replace(albumPhotosKey, ''),
-            });
-            res.send(photos);
-        });
+router.param('photoId', function (req, res, next, id) {
+    console.log("finding photo");
+  Photo.findById(id)
+  .then(function (photo) {
+    if (!photo) {
+      var err = new Error('No such photo');
+      err.status = 404;
+      throw err;
+    }
+    req.photo = photo;
+  })
+  .then(next, next);
 });
 
 
-
-
-let addToDb = function(photo) {
-    //******* Need to add album id somewhere*************
-    return Photo.create(photo)
-    .then(function(err, data) {
+router.get('/viewAlbum/:albumName', function(req, res, next) {
+    var albumPhotosKey = encodeURIComponent(req.params.albumName) + '//';
+    s3.listObjects({
+        Prefix: albumPhotosKey
+    }, function(err, data) {
         if (err) {
-            err.message = "Error saving photo to DB"
-            err.status = 500;
-            
-            return err
+            console.log("error retriving album");
+            return next(err);
         }
-        return;
-    })
-    .then(null, console.error.bind(console))
-}
+        // `this` references the AWS.Response instance that represents the response
+        var href = this.request.httpRequest.endpoint.href;
+        var bucketUrl = href + albumBucketName + '/';
+
+        var photos = data.Contents.map(function(photo) {
+            var photoKey = photo.Key;
+            var photoUrl = bucketUrl + encodeURIComponent(photoKey);
+            let photoItem = {
+                key: photoKey,
+                url: photoUrl
+            }
+            return photoItem;
+            // '<img style="width:128px;height:128px;" src="' + photoUrl + '"/>',
+            // '<span ng-click="deletePhoto(\'' + albumName + "','" + photoKey + '\')">',
+            // photoKey.replace(albumPhotosKey, ''),
+        });
+        res.send(photos);
+    });
+});
 
 
 
@@ -105,11 +102,10 @@ router.post('/photo/:albumId', function(req, res, next) {
     let title = '';
     let albumId;
     let newPhoto = {}
-    if(req.params.albumId !== 'none') {
+    if (req.params.albumId !== 'none') {
         albumId = req.params.albumId;
         newPhoto.album = albumId
-    }
-    else {
+    } else {
         albumId = false;
     }
     let length;
@@ -121,11 +117,11 @@ router.post('/photo/:albumId', function(req, res, next) {
     req.busboy.on('file', function(fieldname, file, fileName, encoding, mimetype) {
         let filename = uniqueFilename('upload-img') + '.jpg';
         filename = filename.replace(/\//g, '-');
-        if(albumId) {
+        if (albumId) {
             console.log("detected album", albumId);
             filename = albumId + '/' + filename;
         }
-        
+
         let params = {
             Key: filename,
             Bucket: 'ztf',
@@ -137,39 +133,27 @@ router.post('/photo/:albumId', function(req, res, next) {
                 console.log("Error uploading data: ", err);
                 next(err);
             } else {
-                // createThumbnail(file, filename);
                 newPhoto.src = s3Path + filename;
-                // newPhoto.thumbSrc = s3Path + 'thumbnail-' + filename;
                 newPhoto.title = title;
-                addToDb(newPhoto).then(function(err, data) {
-                    if (err) {
-                        err.message = "Error saving photo to DB"
-                        err.status = 500;
-                        return err
-                    } else {
-                        console.log("photo saved success");
-                        return
-                    }
-                })
-                .then((photo, err) => {
-                    if(err) {
-                        console.log("last errr", err);
-                        return err
-                    }
-                    else {
-                         res.json({
+                console.log("uploaded to aws");
+                Photo.create(newPhoto)
+                    .then(photo => {
+                        console.log("success saving to DB", photo.src);
+                        res.json({
                             "success": true
                         });
                         res.end();
-                    }
-                }).catch(err => {
-                    res.sendStatus(500)
-                    res.end();
-                });
+                    }).catch(err => {
+                        console.log("caught error", err);
+                        next(err)
+                    });
             }
         });
 
     });
 })
+
+
+
 
 module.exports = router;

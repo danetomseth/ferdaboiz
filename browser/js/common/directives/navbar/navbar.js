@@ -24,16 +24,11 @@ app.directive('navbar', function($rootScope, AuthService, AUTH_EVENTS, $state) {
                 }, {
                     label: 'Upload',
                     state: 'upload'
+                },
+                {
+                    label: 'Admin',
+                    state: 'admin'
                 }
-                // , {
-                //     label: 'New Album',
-                //     state: 'newAlbum'
-                // },
-
-                // {
-                //     label: 'Admin',
-                //     state: 'admin'
-                // }
             ];
 
             scope.user = null;

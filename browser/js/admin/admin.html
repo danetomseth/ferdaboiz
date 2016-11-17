@@ -1,6 +1,6 @@
 
 
-<div id="albumEditPage" ng-hide="selectingPictures">
+<!-- <div id="albumEditPage" ng-hide="selectingPictures">
 	<div id="albumEdit" ng-repeat="album in albums" class="md-whiteframe-3dp">
 			<div layout="column" ng-cloak class="md-inline-form">
 				<div>
@@ -36,4 +36,46 @@
 	<img ng-src="{{photo.src}}" ng-click="addToAlbum(photo)" alt="">
 </div>
 
+</div> -->
+
+<div layout="column" layout-margin>
+	<div layout="row" layout-align="center">
+		<div>
+			<md-button class="md-primary md-raised" ng-click="setHomePhotos()">Home Photos</md-button>
+		</div>
+	</div>
+	<div layout="row" layout-wrap ng-show="albums.length">
+		<div flex="100">
+			<h3 class="p-title p-title-no-margin">
+				<span>Albums</span>
+			</h3>
+		</div>
+		<div flex="20" ng-repeat="album in albums">
+			<album-card album="album"></album-card>
+		</div>
+	</div>
+	<div layout="column" layout-align="start center" ng-hide="albums.length">
+		<h2>No Albums</h2>
+		<div>
+			<md-button class="md-primary md-raised" ui-sref="newAlbum">Create</md-button>
+		</div>
+	</div>
+	
+	<div layout="row" layout-wrap ng-show="photos.length">
+		<div flex="100">
+			<h3 class="p-title p-title-no-margin">
+				<span>Photos</span>
+			</h3>
+		</div>
+		<div flex="20" ng-repeat="photo in photos">
+			<single-photo photo="photo"></single-photo>
+		</div>
+	</div>
+
+	<div layout="column" layout-align="start center" ng-hide="photos.length">
+		<h2>No Photos</h2>
+		<div>
+			<md-button class="md-primary md-raised" ui-sref="upload">Upload</md-button>
+		</div>
+	</div>
 </div>

@@ -1,17 +1,17 @@
-app.controller("AdminCtrl", ($scope, $state, AdminFactory, AlbumFactory, PhotosFactory) => {
+app.controller("AdminCtrl", ($scope, $state, photos, albums, AdminFactory, AlbumFactory, PhotosFactory) => {
     $scope.addingPictures = false;
 
-    AlbumFactory.fetchAll()
-        .then(albums => {
-            console.log('fetched', albums);
-            $scope.albums = albums;
-            $scope.albumOne = $scope.albums[0];
-        });
 
-    PhotosFactory.fetchTen()
-        .then(photos => {
-            $scope.photos = photos;
-        });
+    $scope.editMode = true;
+
+    $scope.photos = photos;
+    $scope.albums = albums;
+    console.log("albums: ", albums);
+
+    $scope.deletePhoto = (photo) => {
+        console.log("in controller: ", photo);
+        PhotosFactory.deletePhoto(photo._id);
+    }
 
     $scope.deleteAlbum = (album) => {
         AlbumFactory.deleteAlbum(album._id);
