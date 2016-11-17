@@ -12,6 +12,7 @@ router.use('/photos', require('./photos'));
 router.use('/albums', require('./albums'));
 router.use('/upload', require('./upload'));
 router.use('/getFiles', require('./getFiles'));
+router.use('/aws', require('./aws'));
 
 
 

@@ -8,7 +8,8 @@ app.controller('UploadCtrl', ($scope, $state, albums, PhotosFactory, AlbumFactor
 
     $scope.uploadAlbum = "none";
 
-    $scope.uploadUrl = "/api/upload/photo/"
+    // $scope.uploadUrl = "/api/upload/photo/"
+    $scope.uploadUrl = "/api/aws/photo/"
 
     $scope.creatingAlbum = false;
 

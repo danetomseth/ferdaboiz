@@ -15,7 +15,7 @@ app.factory('PhotosFactory', ($http) => {
 			})
 		},
 		fetchAll: () => {
-			return $http.get('/api/photos')
+			return $http.get('/api/photos/allPhotos')
 			.then(res => {
 				return res.data;
 			})
@@ -44,10 +44,17 @@ app.factory('PhotosFactory', ($http) => {
 			})
 		},
 		fetchAllRandom: () => {
-			return $http.get('/api/photos/randomall').then(res => {
+			return $http.get('/api/photos/randomize').then(res => {
 				console.log("res: ", res.data);
 				return res.data;
 			})
-		}
+		},
+		deletePhoto: (photoId) => {
+			console.log("deleteing", photoId);
+			return $http.delete('/api/photos/singlePhoto/'+ photoId)
+			.then(res => {
+				return res.data;
+			})
+		},
 	}
 });

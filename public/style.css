@@ -3,6 +3,9 @@
   box-sizing: border-box;
   font-family: "filson-soft",sans-serif; }
 
+#main {
+  min-height: 300px; }
+
 .modal-dialog {
   margin-top: 170px; }
 
@@ -301,44 +304,6 @@ photo-grid {
 
 #simpleAlbum img:hover {
   opacity: 0.8; }
-
-#photos .cropArea {
-  background: #E4E4E4;
-  overflow: hidden;
-  width: 500px;
-  height: 350px; }
-
-#photos form .progress {
-  line-height: 15px; }
-
-#photos .progress {
-  display: inline-block;
-  width: 100px;
-  border: 3px groove #CCC; }
-
-#photos .progress div {
-  font-size: smaller;
-  background: orange;
-  width: 0; }
-
-#photos .well {
-  color: #0193B7; }
-
-#userPhotos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
-
-#userPhotos div {
-  width: 300px;
-  height: 200px;
-  margin: 5px; }
-
-#userPhotos div img {
-  width: 100%; }
-
-#userPhotos div img:hover {
-  opacity: 0.5; }
 
 #galleryContainer {
   display: flex;
